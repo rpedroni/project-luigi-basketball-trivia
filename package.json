@@ -1,0 +1,25 @@
+{
+  "name": "luigi-basketball-trivia",
+  "version": "1.0.0",
+  "description": "Basketball trivia game for Luigi",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot run src/server.ts",
+    "build": "bun run build:js && bun run build:css && bun run build:html && bun run build:copy",
+    "build:js": "bun build src/index.tsx --outdir ./dist --minify",
+    "build:css": "bunx tailwindcss -i ./src/index.css -o ./dist/index.css --minify",
+    "build:html": "bun run scripts/build-html.ts",
+    "build:copy": "cp -r public/* dist/ 2>/dev/null || true"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "framer-motion": "^11.15.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.6.2"
+  }
+}
